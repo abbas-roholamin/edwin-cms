@@ -1,8 +1,8 @@
 <!-- Header -->
-<?php include_once("includes/header.php")?>
+<?php include_once("resources/layouts/header.php");?>
 
 <!-- Navigation -->
-<?php include_once("includes/navbar.php");?>
+<?php include_once("resources/layouts/navbar.php");?>
 
 <!-- Page Content -->
 <div class="container">
@@ -84,7 +84,7 @@
         </div>
 
         <!-- Blog Sidebar Widgets Column -->
-        <?php include_once("includes/sidebar.php");?>
+        <?php include_once("resources/layouts/sidebar.php");?>
 
     </div>
     <!-- /.row -->
@@ -92,4 +92,4 @@
     <hr>
 
     <!-- Footer -->
-    <?php include_once('includes/footer.php');?>
+    <?php include_once('resources/layouts/footer.php');?>

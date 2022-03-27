@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- <?php include_once("../../database/db.php");?> -->
 
     <head>
         <meta charset="utf-8">
@@ -8,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Blog Home - Start Bootstrap Template</title>
+        <title>Edwin-cms</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
