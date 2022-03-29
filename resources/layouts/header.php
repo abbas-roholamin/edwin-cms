@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- <?php include_once("../../database/db.php");?> -->
+
 
     <head>
         <meta charset="utf-8">
@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <link rel="icon" type="image/x-icon" href="../../public/image/favicon.png">
         <title>Edwin-cms</title>
 
         <!-- Bootstrap Core CSS -->

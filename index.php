@@ -1,3 +1,5 @@
+<!-- DB -->
+<?php include_once("database/db.php");?>
 <!-- Header -->
 <?php include_once("resources/layouts/header.php");?>
 
