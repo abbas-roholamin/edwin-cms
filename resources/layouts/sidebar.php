@@ -13,20 +13,22 @@
 
     <!-- Blog Categories Well -->
     <div class="well">
-        <h4>Blog Categories</h4>
+        <h4>Categories</h4>
         <!-- /.row -->
         <div class="row">
             <!-- /.col-lg-6 -->
             <div class="col-lg-12">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
+                    <?php
+                    $sql = "SELECT * FROM categories";
+                    $results = $connection->query($sql);
+                    $rows = $results->fetch_all(1);
+                    foreach ($rows as $row):
+                        $post_title = $row['title'];
+                    ?>
+                    <li><a href="#"><?= $post_title?></a>
                     </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
+                    <?php endforeach?>
                 </ul>
             </div>
         </div>
