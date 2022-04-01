@@ -3,13 +3,10 @@
     <!-- Blog Search Well -->
     <div class="well">
         <h4>Search</h4>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Blog Name">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
+        <div class="form-group">
+            <form action="search.php" method="POST">
+                <input type="text" name="search" class="form-control" placeholder="Search..." autocomplete="off">
+            </form>
         </div>
         <!-- /.input-group -->
     </div>
