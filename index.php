@@ -13,65 +13,43 @@
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-
             <h1 class="page-header">
                 Page Heading
                 <small>Secondary Text</small>
             </h1>
 
-            <!-- First Blog Post -->
+            <!-- Blog Posts -->
+            <?php
+                    $sql = "SELECT * FROM posts";
+                    $results = $connection->query($sql);
+                    $rows = $results->fetch_all(1);
+                    foreach ($rows as $row):
+                        $post_title = $row['title'];
+                        $post_content = $row['content'];
+                        $post_image = $row['image'];
+                        $post_author = $row['author'];
+                        $post_date = $row['date'];
+                        $post_status = $row['status'];
+            ?>
             <h2>
-                <a href="#">Blog Post Title</a>
+                <a href="#"><?php echo  $post_title; ?></a>
             </h2>
             <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
+                by <a href="index.php"><?php echo $post_author; ?></a>
             </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post_date?></p>
+
             <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+            <img class="img-responsive" src="./public/image/<?php echo $post_image; ?>" alt="">
+
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora,
-                necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi
-                corrupti debitis ipsum officiis rerum.</p>
+            <p><?php echo $post_content;?></p>
             <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
             <hr>
 
-            <!-- Second Blog Post -->
-            <h2>
-                <a href="#">Blog Post Title</a>
-            </h2>
-            <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
-            </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores
-                harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio
-                minima dolorum perferendis labore impedit voluptates!</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <?php endforeach?>
 
-            <hr>
-
-            <!-- Third Blog Post -->
-            <h2>
-                <a href="#">Blog Post Title</a>
-            </h2>
-            <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
-            </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore
-                ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores
-                provident id incidunt autem. Magni, ratione.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-            <hr>
 
             <!-- Pager -->
             <ul class="pager">
