@@ -1,3 +1,5 @@
+<!-- DB -->
+<?php include_once("database/db.php");?>
 <!DOCTYPE html>
 <html lang="en">
 
