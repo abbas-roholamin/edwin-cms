@@ -23,6 +23,9 @@
                 <li>
                     <a href="#">About</a>
                 </li>
+                <li>
+                    <a href="admin">Dashboard</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
