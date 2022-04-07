@@ -23,19 +23,29 @@
                 <main>
                     <div class="col-lg-12">
                         <?php if (isset($_POST['submit'])) {
-                            $category_name = $_POST['category_name'];
-                            if ($category_name != "") {
-                                $sql = "INSERT INTO categories (title) VALUES ('{$category_name}')";
+                                $category_name = $_POST['category_name'];
+                                if ($category_name != "") {
+                                    $sql = "INSERT INTO categories (title) VALUES ('{$category_name}')";
+                                    $results = $connection->query($sql);
+                                    if ($results) {
+                                        echo "<div class='alert alert-success'>Saved</div>";
+                                        header('Location: categories.php');
+                                    }else{
+                                        echo "<div class='alert alert-warning'>Not saved</div>";
+                                    }
+                                }else{
+                                    echo "<div class='alert alert-danger'>Input feild is empty</div>";
+                                }
+                            }
+                            if (isset($_GET['category_id'])) {
+                                $id = $_GET['category_id'];
+                                $sql = "DELETE FROM categories WHERE id = $id";
                                 $results = $connection->query($sql);
                                 if ($results) {
-                                    echo "<div class='alert alert-success'>Saved</div>";
-                                }else{
-                                    echo "<div class='alert alert-warning'>Not saved</div>";
+                                    header('Location: categories.php');
                                 }
-                            }else{
-                                echo "<div class='alert alert-danger'>Input feild is empty</div>";
                             }
-                        }?>
+                        ?>
                     </div>
                     <div class="col-lg-9">
                         <table class="table table-spride ">
@@ -54,11 +64,12 @@
                                     $rows = $results->fetch_all(1);
                                     $i = 1;
                                     foreach ($rows as $row):
-                                        $post_title = $row['title'];
+                                        $id = $row['id'];
+                                        $title = $row['title'];
                                 ?>
                                 <tr>
                                     <td><?=$i?></td>
-                                    <td><?=$post_title?></td>
+                                    <td><?=$title?></td>
                                     <td>10</td>
                                     <td>
                                         <div class="action_dropdown_area">
@@ -72,7 +83,7 @@
                                                         <i class="fa fa-pencil info"></i>
                                                         Edit
                                                     </a>
-                                                    <a href="#" class="dropdown-item">
+                                                    <a href="categories.php?category_id=<?=$id?>" class="dropdown-item">
                                                         <i class="fa fa-trash  danger"></i>
                                                         Delete
                                                     </a>
