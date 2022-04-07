@@ -21,6 +21,22 @@
                     </h2>
                 </div>
                 <main>
+                    <div class="col-lg-12">
+                        <?php if (isset($_POST['submit'])) {
+                            $category_name = $_POST['category_name'];
+                            if ($category_name != "") {
+                                $sql = "INSERT INTO categories (title) VALUES ('{$category_name}')";
+                                $results = $connection->query($sql);
+                                if ($results) {
+                                    echo "<div class='alert alert-success'>Saved</div>";
+                                }else{
+                                    echo "<div class='alert alert-warning'>Not saved</div>";
+                                }
+                            }else{
+                                echo "<div class='alert alert-danger'>Input feild is empty</div>";
+                            }
+                        }?>
+                    </div>
                     <div class="col-lg-9">
                         <table class="table table-spride ">
                             <thead>
@@ -74,11 +90,11 @@
                         <h4>Add Category</h4>
                         <form action="" method="post">
                             <div class="form-group">
-                                <input type="text" name="search" class="form-control" placeholder="Category name"
+                                <input type="text" name="category_name" class="form-control" placeholder="Category name"
                                     autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary form-control" value="Save">
+                                <input type="submit" name="submit" class="btn btn-primary form-control" value="Save">
                             </div>
                         </form>
                     </div>
