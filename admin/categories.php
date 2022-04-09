@@ -1,4 +1,5 @@
 <?php include "recources/header.php";?>
+<?php include "function.php";?>
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -26,46 +27,22 @@
                             // Add category to DB
                             if (isset($_POST['save'])) {
                                 $category_name = $_POST['category_name'];
-                                if ($category_name != "") {
-                                    $sql = "INSERT INTO categories (title) VALUES ('{$category_name}')";
-                                    $results = $connection->query($sql);
-                                    if ($results) {
-                                        echo "<div class='alert alert-success'>Saved</div>";
-                                        header('Location: categories.php');
-                                    }else{
-                                        echo "<div class='alert alert-warning'>Not saved</div>";
-                                    }
-                                }else{
-                                    echo "<div class='alert alert-danger'>Input feild is empty</div>";
-                                }
+                                $result =  saveCategory($category_name);
+                                echo $result;
                             }
 
                             // Delete cagtegoru form DB
                             if (isset($_GET['category_id'])) {
                                 $id = $_GET['category_id'];
-                                $sql = "DELETE FROM categories WHERE id = $id";
-                                $results = $connection->query($sql);
-                                if ($results) {
-                                    header('Location: categories.php');
-                                }
+                                deleteCategory($id);
                             }
 
 
                             if (isset($_POST['update'])) {
                                 $category_id = $_POST['category_id'];
                                 $category_name = $_POST['category_name'];
-                                if ($category_name != "") {
-                                    $sql = "UPDATE categories SET title = '{$category_name}' WHERE id = $category_id";
-                                    $results = $connection->query($sql);
-                                    if ($results) {
-                                        echo "<div class='alert alert-success'>Saved</div>";
-                                        header('Location: categories.php');
-                                    }else{
-                                        echo "<div class='alert alert-warning'>Not saved</div>";
-                                    }
-                                }else{
-                                    echo "<div class='alert alert-danger'>Input feild is empty</div>";
-                                }
+                                $result =  updateCategory($category_id,$category_name);
+                                echo $result;
                             }
                         ?>
                     </div>
@@ -84,9 +61,7 @@
                             <tbody>
                                 <?php
                                     // Get all categories form DB 
-                                    $sql = "SELECT * FROM categories";
-                                    $results = $connection->query($sql);
-                                    $rows = $results->fetch_all(1);
+                                   $rows = getAllCategories();
                                     $i = 1;
                                     foreach ($rows as $row):
                                         $id = $row['id'];
@@ -141,22 +116,15 @@
                         <!-- Edit category form -->
                         <?php
                             if (isset($_GET["id"])):
-                            $id = $_GET['id'];
-                            $sql = "SELECT * FROM categories WHERE id = $id";
-                            $results = $connection->query($sql);
-                            $rows = $results->fetch_all(1);
-                            foreach ($rows as $row):
-                                $id = $row['id'];
-                                $title = $row['title'];
-                            endforeach
+                            $data = editCagtegory($_GET["id"]);
                         ?>
                         <div class="edit-category-form">
                             <h4>Edit Category</h4>
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <input type="hidden" name="category_id" value="<?=$id?>">
-                                    <input type="text" name="category_name" value="<?=$title?>" class="form-control"
-                                        placeholder="Category name" autocomplete="off">
+                                    <input type="hidden" name="category_id" value="<?=$data['id']?>">
+                                    <input type="text" name="category_name" value="<?=$data['title']?>"
+                                        class="form-control" placeholder="Category name" autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" name="update" class="btn btn-primary form-control"
