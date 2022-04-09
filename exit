@@ -1,0 +1,107 @@
+[33mcommit 44ec7e98938d725b2b43d7e3cc778e74b570b4ff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Thu Apr 7 22:40:06 2022 +0430
+
+    update or edit category
+
+[33mcommit c980a75d8357a5ec0305a503dc8a53f574664c1d[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Thu Apr 7 22:14:28 2022 +0430
+
+    delete category from db
+
+[33mcommit 55b8e968a685baf6b8caa12daf5aa80fac156d95[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Thu Apr 7 21:58:03 2022 +0430
+
+    add ob_start() function in admin-header file
+
+[33mcommit 812bae7db919df47057306fc34c38d777a0c5884[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Thu Apr 7 21:52:02 2022 +0430
+
+    add category to db
+
+[33mcommit 4a4cbbac06de5f01619feb85b9cbfe5b1bd87aeb[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Thu Apr 7 21:35:53 2022 +0430
+
+    create and style category page
+
+[33mcommit 77164b62944b4b61408a12aeed4af31b3fd71cf0[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sat Apr 2 23:11:48 2022 +0430
+
+    create categories table for display them
+
+[33mcommit 5216c0da0900df85224a8216a4c9edd8c7194155[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sat Apr 2 22:52:35 2022 +0430
+
+    refuctore the navbar and sidebar codes
+
+[33mcommit 705d84a1d39d7c47d1ef3a54f4808533397904a3[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sat Apr 2 22:32:56 2022 +0430
+
+    create reuseable code in admin panel
+
+[33mcommit 0aedefd2ebc6a0c0665af7e7a84b5ed8a4bed89e[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Fri Apr 1 23:20:12 2022 +0430
+
+    display categories in sidebar
+
+[33mcommit 7bfb3d4eca243074a366c0778b9565ccd911d804[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Fri Apr 1 22:57:05 2022 +0430
+
+    add search option
+
+[33mcommit fa1924086e9d65e43224b82b029a0546df29b477[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Fri Apr 1 22:35:26 2022 +0430
+
+    display posts
+
+[33mcommit 43959258f65d5b6557a13ddba2e9caee4fbbed90[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Tue Mar 29 21:22:53 2022 +0430
+
+    add partials part to post page
+
+[33mcommit a76c1378f52279d0bcc3be79edcaf93d1cbee200[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Tue Mar 29 20:34:32 2022 +0430
+
+    add icon and make some change in folder structure
+
+[33mcommit 24c2e882d394b6503c77792395792a337caa1e8d[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sun Mar 27 23:12:34 2022 +0430
+
+    change app folder structure
+
+[33mcommit 28ab7c7ce9bc2a611f97e043eb73b8fc7d613e44[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sun Mar 27 21:34:33 2022 +0430
+
+    make db file and connecting to database
+
+[33mcommit dd71b2ee19bf5e47f59a008df358109b71c1782e[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sun Mar 27 21:22:00 2022 +0430
+
+    making our files reuseable and madule
+
+[33mcommit 5619a994a6bce6d6ce0489504b37f4f9f8b4a6d6[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Sun Mar 27 21:04:28 2022 +0430
+
+    setup edwin-cms project
+
+[33mcommit fe3346ba778e4595c732ebf8704f458edceca1e3[m
+Author: Abbas roholamin <92622822+abbas-roholamin@users.noreply.github.com>
+Date:   Fri Mar 25 21:56:46 2022 -0700
+
+    Initial commit

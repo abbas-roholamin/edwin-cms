@@ -1,12 +1,12 @@
-<?php include_once "recources/header.php";?>
+<?php require "recources/header.php";?>
 <div id="wrapper">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <?php include_once "recources/navbar.php";?>
+        <?php require "recources/navbar.php";?>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
-        <?php include_once "recources/sidebar.php";?>
+        <?php require "recources/sidebar.php";?>
         <!-- /.navbar-collapse -->
     </nav>
 
@@ -33,4 +33,4 @@
 </div>
 <!-- /#wrapper -->
 
-<?php include_once "recources/footer.php";?>
+<?php require "recources/footer.php";?>
