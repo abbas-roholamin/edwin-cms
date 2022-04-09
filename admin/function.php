@@ -1,6 +1,6 @@
 <?php
 
-
+// Category funtions
 function getAllCategories()
 {
     global $connection;
@@ -63,5 +63,16 @@ function updateCategory($category_id,$category_name)
         echo "<div class='alert alert-danger'>Input feild is empty</div>";
     }
 
+}
+
+//posts function
+
+function getAllPosts()
+{
+    global $connection;
+    $sql = "SELECT p.*, c.title as category FROM posts as p INNER JOIN categories as c ON p.category_id=c.id";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    return $rows;
 }
 ?>

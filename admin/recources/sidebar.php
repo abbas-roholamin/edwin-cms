@@ -9,10 +9,10 @@
                 Posts <b class="caret"></b></a>
             <ul id="posts_dropdown" class="collapse">
                 <li>
-                    <a href="#">Dropdown Item</a>
+                    <a href="./posts.php">Veiw all posts</a>
                 </li>
                 <li>
-                    <a href="#">Dropdown Item</a>
+                    <a href="#">Create new post</a>
                 </li>
             </ul>
         </li>
