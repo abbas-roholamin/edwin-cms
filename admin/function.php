@@ -1,6 +1,11 @@
 <?php
 
-// Category funtions
+
+/**
+ * getAllCategories
+ *
+ * @return Arrary
+ */
 function getAllCategories()
 {
     global $connection;
@@ -10,6 +15,12 @@ function getAllCategories()
     return $rows;
 }
 
+/**
+ * saveCategory
+ *
+ * @param  mixed $category_name
+ * @return void
+ */
 function saveCategory($category_name)
 {
     global $connection;
@@ -28,6 +39,12 @@ function saveCategory($category_name)
 
 }
 
+/**
+ * deleteCategory
+ *
+ * @param  mixed $id
+ * @return void
+ */
 function deleteCategory($id){
     global $connection;
     $sql = "DELETE FROM categories WHERE id = $id";
@@ -37,6 +54,12 @@ function deleteCategory($id){
     }
 }
 
+/**
+ * editCagtegory
+ *
+ * @param  mixed $id
+ * @return Arrary
+ */
 function editCagtegory($id)
 {
     global $connection;
@@ -48,6 +71,13 @@ function editCagtegory($id)
     return $data;
 }
 
+/**
+ * updateCategory
+ *
+ * @param  mixed $category_id
+ * @param  mixed $category_name
+ * @return void
+ */
 function updateCategory($category_id,$category_name)
 {
     global $connection;
@@ -67,6 +97,11 @@ function updateCategory($category_id,$category_name)
 
 //posts function
 
+/**
+ * getAllPosts
+ *
+ * @return Arrary
+ */
 function getAllPosts()
 {
     global $connection;

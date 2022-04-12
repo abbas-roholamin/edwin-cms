@@ -1,6 +1,6 @@
 <div>
     <!-- Categoroies table -->
-    <table class="table table-spride ">
+    <table class="table table-spride post_table">
         <thead>
             <tr>
                 <th>Number</th>
