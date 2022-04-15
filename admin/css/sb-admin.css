@@ -250,8 +250,3 @@ ul.alert-dropdown {
   background-color: transparent;
   border: 0;
 }
-
-//post table
-.posts_table tbody tr td:nth-child(3) {
-  -webkit-line-clamp: 1 !important;
-}
