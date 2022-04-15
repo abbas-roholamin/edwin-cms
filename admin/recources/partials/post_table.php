@@ -1,11 +1,10 @@
 <div>
     <!-- Categoroies table -->
-    <table class="table table-spride post_table">
+    <table class="table table-spride posts_table">
         <thead>
             <tr>
                 <th>Number</th>
                 <th>Title</th>
-                <th>Content</th>
                 <th>Author</th>
                 <th>Category</th>
                 <th>Date</th>
@@ -24,7 +23,6 @@
                     $id = $row['id'];
                     $category = $row['category'];
                     $title = $row['title'];
-                    $content = $row['content'];
                     $image = $row['image'];
                     $author = $row['author'];
                     $date = $row['date'];
@@ -34,12 +32,11 @@
             <tr>
                 <td><?=$i?></td>
                 <td><?=$title?></td>
-                <td><?=$content?></td>
                 <td><?=$author?></td>
                 <td><?=$category?></td>
                 <td><?=$date?></td>
                 <td>
-                    <img src="../../../public/image/<?=$image?>" />
+                    <img src="./public/image/<?=$image?>" />
                 </td>
                 <!-- <td><?=$comment_num?></td> -->
                 <td><?=$status?></td>
