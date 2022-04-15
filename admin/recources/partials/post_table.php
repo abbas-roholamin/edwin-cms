@@ -36,7 +36,7 @@
                 <td><?=$category?></td>
                 <td><?=$date?></td>
                 <td>
-                    <img src="./public/image/<?=$image?>" />
+                    <img src="./public/image/<?=$image?>" class="" />
                 </td>
                 <!-- <td><?=$comment_num?></td> -->
                 <td><?=$status?></td>
