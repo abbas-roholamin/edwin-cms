@@ -7,7 +7,15 @@
     </div>
     <main>
         <div class="col-lg-12">
-            <form action="#" enctype="multipart/form-data">
+            <?php
+                if (isset($_POST['save'])) {
+                    $result = savePost($_POST);
+                    if (!$result == 1) {
+                        echo $result;
+                    }
+                }
+            ?>
+            <form action="#" enctype="multipart/form-data" method="POST">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -43,7 +51,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" class="form-control" placeholder="Post status" id="status">
+                            <input type="text" name="status" class="form-control" placeholder="Post status" id="status">
                         </div>
                     </div>
                 </div>
@@ -52,7 +60,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="tag">Tags</label>
-                            <input type="text" class="form-control" placeholder="Post Tag" id="tag">
+                            <input type="text" name="tags" class="form-control" placeholder="Post Tag" id="tag">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -70,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="save" class="btn btn-primary">Save</button>
             </form>
         </div>
     </main>
