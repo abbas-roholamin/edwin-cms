@@ -10,7 +10,7 @@
             <?php
                 // Edit post func -->
                 if (isset($_GET["id"])){
-                    $data = editPost($_GET["id"]);
+                    $data = getPostById($_GET["id"]);
                 }
 
                 if (isset($_POST['upadate'])) {
