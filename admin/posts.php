@@ -14,21 +14,20 @@
     <div id="page-wrapper">
 
         <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="page-header">
-                        Dashboard / Categories
-                    </h2>
-                </div>
-                <main>
-                    <div class="col-lg-12">
-                        <?php include "recources/partials/post_table.php";?>
-                    </div>
-                </main>
-            </div>
-            <!-- /.row -->
-
+            <?php 
+                $flag = (isset($_GET['flag']))? $_GET['flag'] : "";
+                switch ($flag) {
+                    case 'add':
+                        echo "add";
+                        break;
+                    case 'edit':
+                        echo "edit";
+                        break;
+                    default:
+                    include "recources/partials/posts/post_table.php";
+                        break;
+                }
+            ?>
         </div>
         <!-- /.container-fluid -->
 
