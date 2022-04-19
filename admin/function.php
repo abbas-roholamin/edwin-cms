@@ -159,7 +159,7 @@ function editPost($id)
     $data['category'] = $rows[0]['category_id'];
     $data['tags'] = $rows[0]['tag'];
     $data['status'] = $rows[0]['status'];
-    $data['old_imag'] = $rows[0]['image'];
+    $data['old_image'] = $rows[0]['image'];
     $data['content'] = $rows[0]['content'];  
     return $data;
 }
