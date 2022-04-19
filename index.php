@@ -36,7 +36,8 @@
             <p><span class="glyphicon glyphicon-time"></span> Posted on <?= $post_date?></p>
 
             <hr>
-            <img class="img-responsive" src="./public/image/<?= $post_image; ?>" alt="">
+            <?php $path = ($post_image)? "./public/image/$post_image" : "./public/image/image_1.jpg";?>
+            <img class="img-responsive" src="<?= $path?>" alt="post iamge">
 
             <hr>
             <p><?= $post_content;?></p>
