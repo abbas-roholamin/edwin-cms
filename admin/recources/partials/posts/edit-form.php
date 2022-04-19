@@ -8,10 +8,18 @@
     <main>
         <div class="col-lg-12">
             <?php
+                // Edit post func -->
+                if (isset($_GET["id"])){
+                    $data = editPost($_GET["id"]);
+                }
+
                 if (isset($_POST['upadate'])) {
-                    $result = updatePost($_POST);
-                    if (!$result == 1) {
-                        echo $result;
+                    $id = $_POST['id'];
+                    if($id){
+                        $result = updatePost($id,$_POST);
+                        if (!$result == 1) {
+                            echo $result;
+                        }
                     }
                 }
             ?>
@@ -20,14 +28,17 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Post title" id="title">
+                            <input type="hidden" name="id" value="<?=$data['id']?>">
+                            <input type="text" name="title" value="<?=$data['title']?>" class="form-control"
+                                placeholder="Post title" id="title">
                         </div>
                     </div>
                     <div class="col-lg-6">
 
                         <div class="form-group">
                             <label for="author">Author</label>
-                            <input type="text" name="author" class="form-control" placeholder="Post author" id="author">
+                            <input type="text" name="author" value="<?=$data['author']?>" class="form-control"
+                                placeholder="Post author" id="author">
                         </div>
                     </div>
                 </div>
@@ -43,7 +54,8 @@
                                         $id = $row['id'];
                                         $title = $row['title'];
                                 ?>
-                                <option value="<?= $id?>"><?=$title ?></option>
+                                <option value=" <?= $id?>" <?=($id == $data['id'] )? "selected" : "";?>><?=$title ?>
+                                </option>
                                 <?php endforeach?>
                             </select>
                         </div>
@@ -51,7 +63,8 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" name="status" class="form-control" placeholder="Post status" id="status">
+                            <input type="text" name="status" value="<?=$data['status']?>" class="form-control"
+                                placeholder="Post status" id="status">
                         </div>
                     </div>
                 </div>
@@ -60,12 +73,15 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="tag">Tags</label>
-                            <input type="text" name="tags" class="form-control" placeholder="Post Tag" id="tag">
+                            <input type="text" name="tags" value="<?=$data['tags']?>" class="form-control"
+                                placeholder="Post Tag" id="tag">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="custom-file form-group">
                             <label for="tag">Image</label>
+                            <input type="hidden" value="<?=$data['old_image']?>" class="custom-file-input form-control"
+                                name="old_image" id="image">
                             <input type="file" class="custom-file-input form-control" name="image" id="image">
                         </div>
                     </div>
@@ -74,7 +90,8 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" name="content" rows="3" id="content"></textarea>
+                            <textarea class="form-control" name="content" rows="3"
+                                id="content"><?=$data['content']?></textarea>
                         </div>
                     </div>
                 </div>
