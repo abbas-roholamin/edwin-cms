@@ -29,7 +29,7 @@
                         $post_status = $row['status'];
             ?>
             <h2>
-                <a href="post.php?id=<?=$id?>"><?= $post_title; ?></a>
+                <a href="post.php?post_id=<?=$id?>"><?= $post_title; ?></a>
             </h2>
             <p class="lead">
                 by <a href="index.php"><?= $post_author; ?></a>
