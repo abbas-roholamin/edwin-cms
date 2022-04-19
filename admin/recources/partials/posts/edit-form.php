@@ -79,6 +79,10 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                        <!-- <?php if($data['old_image']):?>
+                        <img src="./public/image/<?=$data['old_image']?>" alt="old_image"
+                            style="max-width: 10rem; max-height: 10rem;">
+                        <?php endif?> -->
                         <div class="custom-file form-group">
                             <label for="tag">Image</label>
                             <input type="hidden" value="<?=$data['old_image']?>" class="custom-file-input form-control"
