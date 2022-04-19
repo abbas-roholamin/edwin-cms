@@ -43,8 +43,8 @@
                         <td><?=$category?></td>
                         <td><?=$date?></td>
                         <td>
-                            <img src="./public/image/<?=$image?>" class="post_image"
-                                style="max-width: 22rem; height: auto;" />
+                            <?php $path = ($image)? "./public/image/$image" : "./public/image/image_1.jpg";?>
+                            <img src="<?=$path?>" class="post_image" style="max-width: 22rem; height: auto;" />
                         </td>
                         <!-- <td><?=$comment_num?></td> -->
                         <td><?=$status?></td>
