@@ -21,7 +21,7 @@
                         include "recources/partials/posts/add-form.php";
                         break;
                     case 'edit':
-                        echo "edit";
+                        include "recources/partials/posts/edit-form.php";
                         break;
                     default:
                         include "recources/partials/posts/post_table.php";
