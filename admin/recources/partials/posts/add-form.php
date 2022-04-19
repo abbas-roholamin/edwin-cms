@@ -28,10 +28,15 @@
                         <div class="form-group">
                             <label for="category">category</label>
                             <select class="form-control" id="category" name="category">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                <?php
+                                    // Get all categories form DB 
+                                   $rows = getAllCategories();
+                                    foreach ($rows as $row):
+                                        $id = $row['id'];
+                                        $title = $row['title'];
+                                ?>
+                                <option value="<?= $id?>"><?=$title ?></option>
+                                <?php endforeach?>
                             </select>
                         </div>
                     </div>
