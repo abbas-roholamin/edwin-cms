@@ -139,4 +139,20 @@ function savePost($data)
         return mysqli_error($connection);
     }
 }
+
+
+/**
+ * deletePost
+ *
+ * @param  mixed $id
+ * @return void
+ */
+function deletePost($id){
+    global $connection;
+    $sql = "DELETE FROM posts WHERE id = $id";
+    $results = $connection->query($sql);
+    if ($results) {
+        header('Location: posts.php');
+    }
+}
 ?>

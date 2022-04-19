@@ -7,6 +7,13 @@
     </div>
     <main>
         <div class="col-lg-12">
+            <?php
+                // Delete posts form DB
+                if (isset($_GET['post_id'])) {
+                    $id = $_GET['post_id'];
+                    deletePost($id);
+                }
+            ?>
             <table class="table table-spride posts_table">
                 <thead>
                     <tr>
@@ -55,12 +62,12 @@
                                         data-toggle="dropdown">
                                         Actions
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" style="left: -45px;">
                                         <a href="categories.php?id=<?=$id?>" class="dropdown-item">
                                             <i class="fa fa-pencil info"></i>
                                             Edit
                                         </a>
-                                        <a href="categories.php?category_id=<?=$id?>" class="dropdown-item">
+                                        <a href="posts.php?post_id=<?=$id?>" class="dropdown-item">
                                             <i class="fa fa-trash  danger"></i>
                                             Delete
                                         </a>
