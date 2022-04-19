@@ -20,6 +20,7 @@
                     $results = $connection->query($sql);
                     $rows = $results->fetch_all(1);
                     foreach ($rows as $row):
+                        $id = $row['id'];
                         $post_title = $row['title'];
                         $post_content = $row['content'];
                         $post_image = $row['image'];
@@ -28,7 +29,7 @@
                         $post_status = $row['status'];
             ?>
             <h2>
-                <a href="#"><?= $post_title; ?></a>
+                <a href="post.php?id=<?=$id?>"><?= $post_title; ?></a>
             </h2>
             <p class="lead">
                 by <a href="index.php"><?= $post_author; ?></a>
