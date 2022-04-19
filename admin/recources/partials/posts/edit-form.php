@@ -54,7 +54,8 @@
                                         $id = $row['id'];
                                         $title = $row['title'];
                                 ?>
-                                <option value=" <?= $id?>" <?=($id == $data['id'] )? "selected" : "";?>><?=$title ?>
+                                <option value=" <?= $id?>" <?=($id == $data['category'] )? "selected" : "";?>>
+                                    <?=$title ?>
                                 </option>
                                 <?php endforeach?>
                             </select>
