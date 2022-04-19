@@ -63,7 +63,7 @@
                                         Actions
                                     </button>
                                     <div class="dropdown-menu" style="left: -45px;">
-                                        <a href="categories.php?id=<?=$id?>" class="dropdown-item">
+                                        <a href="posts.php?flag=edit&id=<?=$id?>" class="dropdown-item">
                                             <i class="fa fa-pencil info"></i>
                                             Edit
                                         </a>
