@@ -24,9 +24,10 @@
                     $results = $connection->query($sql);
                     $rows = $results->fetch_all(1);
                     foreach ($rows as $row):
-                        $post_title = $row['title'];
+                        $id = $row['id'];
+                        $title = $row['title'];
                     ?>
-                    <li><a href="#"><?= $post_title?></a>
+                    <li><a href="post.php?category_id=<?=$id?>"><?= $title?></a>
                     </li>
                     <?php endforeach?>
                 </ul>
