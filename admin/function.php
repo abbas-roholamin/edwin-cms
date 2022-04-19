@@ -134,7 +134,7 @@ function savePost($data)
     $results = $connection->query($sql);
     if ($results) {
         move_uploaded_file($temp_location,'./public/image/'.$image_name);
-        return 1;
+        header('Location: posts.php');
     }else{
         return mysqli_error($connection);
     }
