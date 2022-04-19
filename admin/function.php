@@ -130,7 +130,7 @@ function savePost($data)
     $temp_location = $_FILES['image']['tmp_name'];
     $content = $_POST['content'];    
     $sql = "INSERT INTO posts (title, author, category_id, content, tag, image, status, date)
-    VALUES ('$title', '$author', '$category', '$content','$tags' ,'$image_name', '$status',now())";
+    VALUES ('$title', '$author', $category, '$content','$tags' ,'$image_name', '$status',now())";
     $results = $connection->query($sql);
     if ($results) {
         move_uploaded_file($temp_location,'./public/image/'.$image_name);
@@ -138,6 +138,54 @@ function savePost($data)
     }else{
         return mysqli_error($connection);
     }
+}
+
+
+function editPost($id)
+{
+    global $connection;
+    $sql = "SELECT * FROM posts WHERE id = $id";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    $data['id'] = $rows[0]['id'];
+    $data['title'] = $rows[0]['title'];
+    $data['author'] = $rows[0]['author'];
+    $data['category'] = $rows[0]['category_id'];
+    $data['tags'] = $rows[0]['tag'];
+    $data['status'] = $rows[0]['status'];
+    $data['old_imag'] = $rows[0]['image'];
+    $data['content'] = $rows[0]['content'];  
+    return $data;
+}
+
+
+function updatePost($post_id,$data)
+{
+    global $connection;
+    if ($post_id != "") {
+        $title = $_POST['title'];
+        $author = $_POST['author'];
+        $category = $_POST['category'];
+        $tags = $_POST['tags'];
+        $status = $_POST['status'];
+        $old_image = $_POST['old_image'];
+        $image_name = $_FILES['image']['name'];
+        $temp_location = $_FILES['image']['tmp_name'];
+        $content = $_POST['content'];  
+        $sql = "UPDATE categories SET title='{$title}', author='{$author}', category=$category, tag='{$tags}',";
+        $sql .= "status='{$status}', image='{$image_name}', content='{$content}' WHERE id = $post_id";
+        $results = $connection->query($sql);
+        if ($results) {
+            move_uploaded_file($temp_location,'./public/image/'.$image_name);
+            unlink($old_image,"./public/image/");
+            header('Location: posts.php');
+        }else{
+            echo "<div class='alert alert-warning'>Not saved</div>";
+        }
+    }else{
+        echo "<div class='alert alert-danger'>Input feild is empty</div>";
+    }
+
 }
 
 
