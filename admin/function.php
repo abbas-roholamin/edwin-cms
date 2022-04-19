@@ -147,7 +147,7 @@ function savePost($data)
  * @param  mixed $id
  * @return void
  */
-function editPost($id)
+function getPostById($id)
 {
     global $connection;
     $sql = "SELECT * FROM posts WHERE id = $id";
@@ -161,6 +161,7 @@ function editPost($id)
     $data['status'] = $rows[0]['status'];
     $data['old_image'] = $rows[0]['image'];
     $data['content'] = $rows[0]['content'];  
+    $data['date'] = $rows[0]['date'];  
     return $data;
 }
 
