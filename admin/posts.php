@@ -18,13 +18,13 @@
                 $flag = (isset($_GET['flag']))? $_GET['flag'] : "";
                 switch ($flag) {
                     case 'add':
-                        echo "add";
+                        include "recources/partials/posts/add-form.php";
                         break;
                     case 'edit':
                         echo "edit";
                         break;
                     default:
-                    include "recources/partials/posts/post_table.php";
+                        include "recources/partials/posts/post_table.php";
                         break;
                 }
             ?>
