@@ -190,7 +190,9 @@ function updatePost($post_id,$data)
         $results = $connection->query($sql);
         if ($results) {
             move_uploaded_file($temp_location,'./public/image/'.$image_name);
-            unlink($old_image,"./public/image/");
+            if($image_name){
+                unlink($old_image,"./public/image/");
+            }
             header('Location: posts.php');
         }else{
             echo mysqli_error($connection);
