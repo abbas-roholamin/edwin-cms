@@ -22,7 +22,7 @@
                     foreach ($rows as $row):
                         $id = $row['id'];
                         $post_title = $row['title'];
-                        $post_content = $row['content'];
+                        $post_content = substr($row['content'],0,225);
                         $post_image = $row['image'];
                         $post_author = $row['author'];
                         $post_date = $row['date'];
