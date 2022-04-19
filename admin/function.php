@@ -141,6 +141,12 @@ function savePost($data)
 }
 
 
+/**
+ * editPost
+ *
+ * @param  mixed $id
+ * @return void
+ */
 function editPost($id)
 {
     global $connection;
@@ -159,6 +165,13 @@ function editPost($id)
 }
 
 
+/**
+ * updatePost
+ *
+ * @param  mixed $post_id
+ * @param  mixed $data
+ * @return void
+ */
 function updatePost($post_id,$data)
 {
     global $connection;
@@ -172,15 +185,15 @@ function updatePost($post_id,$data)
         $image_name = $_FILES['image']['name'];
         $temp_location = $_FILES['image']['tmp_name'];
         $content = $_POST['content'];  
-        $sql = "UPDATE categories SET title='{$title}', author='{$author}', category=$category, tag='{$tags}',";
-        $sql .= "status='{$status}', image='{$image_name}', content='{$content}' WHERE id = $post_id";
+        $sql = "UPDATE posts SET title='{$title}', author='{$author}', category_id=$category, tag='{$tags}',";
+        $sql .= "status='{$status}', image='{$image_name}', content='{$content}'  WHERE id = $post_id";
         $results = $connection->query($sql);
         if ($results) {
             move_uploaded_file($temp_location,'./public/image/'.$image_name);
             unlink($old_image,"./public/image/");
             header('Location: posts.php');
         }else{
-            echo "<div class='alert alert-warning'>Not saved</div>";
+            echo mysqli_error($connection);
         }
     }else{
         echo "<div class='alert alert-danger'>Input feild is empty</div>";
