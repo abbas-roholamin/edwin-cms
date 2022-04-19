@@ -12,7 +12,7 @@
                     <a href="./posts.php">Veiw all posts</a>
                 </li>
                 <li>
-                    <a href="#">Create new post</a>
+                    <a href="./posts.php?flag=add">Add new post</a>
                 </li>
             </ul>
         </li>
