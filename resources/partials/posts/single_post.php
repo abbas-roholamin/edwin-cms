@@ -45,9 +45,18 @@
             <h4>Leave a Comment:</h4>
             <form role="form">
                 <div class="form-group">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <label for="author">Name</label>
+                    <input type="text" name="author" class="form-control" id="author">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="content">Comment</label>
+                    <textarea name="content" class="form-control" rows="3" id="content"></textarea>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
