@@ -245,7 +245,26 @@ function getAllComments()
 function getAllCommentsByPostId($id)
 {
     global $connection;
-    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p ON c.post_id=p.id WHERE c.post_id = $id";
+    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p 
+            ON c.post_id=p.id WHERE c.post_id = $id";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    return $rows;
+}
+
+
+
+/**
+ * getAllAprovedCommentsByPostId
+ *
+ * @param  mixed $id
+ * @return void
+ */
+function getAllAprovedCommentsByPostId($id)
+{
+    global $connection;
+    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p 
+            ON c.post_id=p.id WHERE c.post_id = $id AND c.status = 'aproved'";
     $results = $connection->query($sql);
     $rows = $results->fetch_all(1);
     return $rows;
