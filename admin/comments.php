@@ -29,6 +29,10 @@
                                 $id = $_GET['comment_id'];
                                 deleteComment($id);
                             }
+                            
+                            if(isset($_GET["status"])){
+                                changeCommentStatus($_GET);
+                            }
                         ?>
                         <table class="table table-spride posts_table">
                             <thead>
@@ -73,19 +77,17 @@
                                                     Actions
                                                 </button>
                                                 <div class="dropdown-menu" style="left: -45px;">
-                                                    <?php  if($status == "unaproved"):?>
-                                                    <a href="comments.php?comment_id=<?=$id?>&unaprove=0"
-                                                        class="dropdown-item">
-                                                        <i class="fa fa-trash  danger"></i>
-                                                        <?=$status?>
+                                                    <?php  if($status == "aproved"){?>
+                                                    <a href="comments.php?id=<?=$id?>&status=1" class="dropdown-item">
+                                                        <i class="fa fa-times  danger"></i>
+                                                        Unaproved
                                                     </a>
-                                                    <?php else:?>
-                                                    <a href="comments.php?comment_id=<?=$id?>&aprove=1"
-                                                        class="dropdown-item">
-                                                        <i class="fa fa-trash  danger"></i>
-                                                        <?=$status?>
+                                                    <?php }else{?>
+                                                    <a href="comments.php?id=<?=$id?>&status=0" class="dropdown-item">
+                                                        <i class="fa fa-check  danger"></i>
+                                                        Aprove
                                                     </a>
-                                                    <?php endif?>
+                                                    <?php }?>
 
                                                     <a href="comments.php?comment_id=<?=$id?>" class="dropdown-item">
                                                         <i class="fa fa-trash  danger"></i>
