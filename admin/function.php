@@ -219,4 +219,30 @@ function deletePost($id){
         header('Location: posts.php');
     }
 }
+
+
+/**
+ * saveComment
+ *
+ * @param  mixed $data
+ * @return void
+ */
+function saveComment()
+{
+    global $connection;
+    $post_id = $_GET['post_id'];
+    $author = $_POST['author'];
+    $email = $_POST['email'];
+    $content = $_POST['content'];    
+    $sql = "INSERT INTO comments (post_id, author, email, content, date)
+    VALUES ($post_id,'$author', '$email', '$content', now())";
+    $results = $connection->query($sql);
+    if ($results) {
+       header('Location: post.php?post_id='.$post_id);
+    }else{
+        return mysqli_error($connection);
+    }
+}
+
+
 ?>
