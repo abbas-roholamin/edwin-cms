@@ -222,6 +222,20 @@ function deletePost($id){
 
 
 /**
+ * getAllComments
+ *
+ * @return void
+ */
+function getAllComments()
+{
+    global $connection;
+    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p ON c.post_id=p.id";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    return $rows;
+}
+
+/**
  * saveComment
  *
  * @param  mixed $data
