@@ -224,7 +224,7 @@ function deletePost($id){
 /**
  * getAllComments
  *
- * @return void
+ * @return Arr
  */
 function getAllComments()
 {
@@ -293,5 +293,14 @@ function saveComment()
     }
 }
 
+
+function deleteComment($id){
+    global $connection;
+    $sql = "DELETE FROM comments WHERE id = $id";
+    $results = $connection->query($sql);
+    if ($results) {
+        header('Location: comments.php');
+    }
+}
 
 ?>
