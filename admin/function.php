@@ -293,7 +293,30 @@ function saveComment()
     }
 }
 
-
+/**
+ * changeCommentStatus
+ *
+ * @param  mixed $id
+ * @param  mixed $status
+ * @return void
+ */
+function changeCommentStatus()
+{
+    global $connection;
+    $id = $_GET['id'];
+    $status = ($_GET['status'] == 1)? "unaproved" : "aproved";
+    $sql = "UPDATE comments SET status = '$status' WHERE id = $id";
+    $results = $connection->query($sql);
+    if ($results) {
+        header('Location: comments.php');
+    }
+}
+/**
+ * deleteComment
+ *
+ * @param  mixed $id
+ * @return void
+ */
 function deleteComment($id){
     global $connection;
     $sql = "DELETE FROM comments WHERE id = $id";
