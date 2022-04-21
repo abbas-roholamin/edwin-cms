@@ -363,7 +363,7 @@ function saveUser($data)
     $temp_location = $_FILES['image']['tmp_name'];
     $role = $_POST['role'];  
     $sql = "INSERT INTO users (user_name, first_name, last_name, email, password, image, role)
-    VALUES ('$user_name', '$first_name', $last_name, '$email','$password' ,'$image_name', '$role')";
+    VALUES ('$user_name', '$first_name', '$last_name', '$email','$password' ,'$image_name', $role)";
     $results = $connection->query($sql);
     if ($results) {
         move_uploaded_file($temp_location,'./public/image/'.$image_name);
