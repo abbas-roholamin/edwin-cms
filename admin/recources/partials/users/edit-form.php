@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">
-            Dashboard / Edit Post
+            Dashboard / Edit User
         </h2>
     </div>
     <main>
@@ -10,97 +10,83 @@
             <?php
                 // Edit post func -->
                 if (isset($_GET["id"])){
-                    $data = getPostById($_GET["id"]);
+                    $data = getUserById($_GET["id"]);
                 }
 
                 if (isset($_POST['upadate'])) {
-                    $id = $_POST['id'];
+                    $id = $_GET["id"];
                     if($id){
-                        $result = updatePost($id,$_POST);
+                        $result = updateUser($id,$_POST);
                         if (!$result == 1) {
                             echo $result;
                         }
                     }
                 }
             ?>
-            <form action="#" enctype="multipart/form-data" method="POST">
+            <form action="" enctype="multipart/form-data" method="POST">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="hidden" name="id" value="<?=$data['id']?>">
-                            <input type="text" name="title" value="<?=$data['title']?>" class="form-control"
-                                placeholder="Post title" id="title">
+                            <label for="user_name">User Name</label>
+                            <input type="text" name="user_name" value="<?=$data['user_name']?>" class="form-control"
+                                placeholder="User Name" id="user_name">
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label for="author">Author</label>
-                            <input type="text" name="author" value="<?=$data['author']?>" class="form-control"
-                                placeholder="Post author" id="author">
+                            <label for="first_name">First Name</label>
+                            <input type="text" name="first_name" value="<?=$data['first_name']?>" class="form-control"
+                                placeholder="First Name" id="first_name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="status">Last Name</label>
+                            <input type="text" name="last_name" value="<?=$data['last_name']?>" class="form-control"
+                                placeholder="Last Name" id="last_name">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="category">category</label>
-                            <select class="form-control" id="category" name="category">
-                                <?php
-                                    // Get all categories form DB 
-                                   $rows = getAllCategories();
-                                    foreach ($rows as $row):
-                                        $id = $row['id'];
-                                        $title = $row['title'];
-                                ?>
-                                <option value=" <?= $id?>" <?=($id == $data['category'] )? "selected" : "";?>>
-                                    <?=$title ?>
-                                </option>
-                                <?php endforeach?>
+                            <label for="tag">Email</label>
+                            <input type="email" name="email" value="<?=$data['email']?>" class="form-control"
+                                placeholder="Email" id="email">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="password">New Password</label>
+                            <input type="hidden" name="old_password" value="<?=$data['password']?>" id="old_password">
+                            <input type="password" name="password" class="form-control" placeholder="New Password"
+                                id="password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" id="role" name="role">
+                                <option value="1" <?=($data['role'] == 1)? "selected" : "";?>>Admin</option>
+                                <option value="2" <?=($data['role'] == 2)? "selected" : "";?>>Subscriber</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <input type="text" name="status" value="<?=$data['status']?>" class="form-control"
-                                placeholder="Post status" id="status">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="tag">Tags</label>
-                            <input type="text" name="tags" value="<?=$data['tags']?>" class="form-control"
-                                placeholder="Post Tag" id="tag">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- <?php if($data['old_image']):?>
-                        <img src="./public/image/<?=$data['old_image']?>" alt="old_image"
-                            style="max-width: 10rem; max-height: 10rem;">
-                        <?php endif?> -->
                         <div class="custom-file form-group">
                             <label for="tag">Image</label>
-                            <input type="hidden" value="<?=$data['old_image']?>" class="custom-file-input form-control"
-                                name="old_image" id="image">
+                            <input type="hidden" value="<?=$data['image']?>" name="old_image">
                             <input type="file" class="custom-file-input form-control" name="image" id="image">
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="content">Content</label>
-                            <textarea class="form-control" name="content" rows="3"
-                                id="content"><?=$data['content']?></textarea>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" name="upadate" class="btn btn-primary">update</button>
+                <button type="submit" name="upadate" class="btn btn-primary">Upadate</button>
             </form>
         </div>
     </main>
