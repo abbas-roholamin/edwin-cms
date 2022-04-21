@@ -413,7 +413,7 @@ function updateUser($user_id,$data)
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = ($_POST['password'])? $_POST['password'] : $_POST['old_password'];
         $old_image = $_POST['old_image'];
         $image_name = $_FILES['image']['name'];
         $temp_location = $_FILES['image']['tmp_name'];
