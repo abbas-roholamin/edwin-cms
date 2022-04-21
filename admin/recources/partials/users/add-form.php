@@ -2,79 +2,76 @@
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">
-            Dashboard / Add Post
+            Dashboard / Add User
         </h2>
     </div>
     <main>
         <div class="col-lg-12">
             <?php
                 if (isset($_POST['save'])) {
-                    $result = savePost($_POST);
+                    $result = saveUser($_POST);
                     if (!$result == 1) {
                         echo $result;
                     }
                 }
             ?>
-            <form action="#" enctype="multipart/form-data" method="POST">
+            <form action="" enctype="multipart/form-data" method="POST">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Post title" id="title">
+                            <label for="user_name">User Name</label>
+                            <input type="text" name="user_name" class="form-control" placeholder="User Name"
+                                id="user_name">
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label for="author">Author</label>
-                            <input type="text" name="author" class="form-control" placeholder="Post author" id="author">
+                            <label for="first_name">First Name</label>
+                            <input type="text" name="first_name" class="form-control" placeholder="First Name"
+                                id="first_name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="status">Last Name</label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Last Name"
+                                id="last_name">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="category">category</label>
-                            <select class="form-control" id="category" name="category">
-                                <?php
-                                    // Get all categories form DB 
-                                   $rows = getAllCategories();
-                                    foreach ($rows as $row):
-                                        $id = $row['id'];
-                                        $title = $row['title'];
-                                ?>
-                                <option value="<?= $id?>"><?=$title ?></option>
-                                <?php endforeach?>
+                            <label for="tag">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email" id="email">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" class="form-control" placeholder="Password"
+                                id="password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" id="role" name="role">
+                                <option value="1">Admin</option>
+                                <option value="2">Subscriber</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <input type="text" name="status" class="form-control" placeholder="Post status" id="status">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="tag">Tags</label>
-                            <input type="text" name="tags" class="form-control" placeholder="Post Tag" id="tag">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="custom-file form-group">
                             <label for="tag">Image</label>
                             <input type="file" class="custom-file-input form-control" name="image" id="image">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="content">Content</label>
-                            <textarea class="form-control" name="content" rows="3" id="content"></textarea>
                         </div>
                     </div>
                 </div>
