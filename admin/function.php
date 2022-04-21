@@ -221,6 +221,8 @@ function deletePost($id){
 }
 
 
+
+ //comments functions
 /**
  * getAllComments
  *
@@ -325,5 +327,130 @@ function deleteComment($id){
         header('Location: comments.php');
     }
 }
+
+
+
+/**
+ * getAllPosts
+ *
+ * @return Arrary
+ */
+function getAllUsers()
+{
+    global $connection;
+    $sql = "SELECT *  FROM users";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    return $rows;
+}
+
+
+/**
+ * savePost
+ *
+ * @param  mixed $data
+ * @return void
+ */
+function saveUser($data)
+{
+    global $connection;
+    $user_name = $_POST['user_name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $image_name = $_FILES['image']['name'];
+    $temp_location = $_FILES['image']['tmp_name'];
+    $role = $_POST['role'];  
+    $sql = "INSERT INTO users (user_name, first_name, last_name, email, password, image, role)
+    VALUES ('$user_name', '$first_name', $last_name, '$email','$password' ,'$image_name', '$role')";
+    $results = $connection->query($sql);
+    if ($results) {
+        move_uploaded_file($temp_location,'./public/image/'.$image_name);
+        header('Location: users.php');
+    }else{
+        return mysqli_error($connection);
+    }
+}
+
+
+/**
+ * editPost
+ *
+ * @param  mixed $id
+ * @return void
+ */
+function getUserById($id)
+{
+    global $connection;
+    $sql = "SELECT * FROM users WHERE id = $id";
+    $results = $connection->query($sql);
+    $rows = $results->fetch_all(1);
+    $data['id'] = $rows[0]['id'];
+    $data['user_name'] = $rows[0]['user_name'];
+    $data['first_name'] = $rows[0]['first_name'];
+    $data['last_name'] = $rows[0]['last_name'];
+    $data['email'] = $rows[0]['email'];
+    $data['password'] = $rows[0]['password'];
+    $data['image'] = $rows[0]['image'];
+    $data['role'] = $rows[0]['role'];  
+    return $data;
+}
+
+
+/**
+ * updatePost
+ *
+ * @param  mixed $post_id
+ * @param  mixed $data
+ * @return void
+ */
+function updateUser($user_id,$data)
+{
+    global $connection;
+    if ($user_id != "") {
+        $user_name = $_POST['user_name'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $old_image = $_POST['old_image'];
+        $image_name = $_FILES['image']['name'];
+        $temp_location = $_FILES['image']['tmp_name'];
+        $role = $_POST['role'];  
+        $sql = "UPDATE users SET user_name='{$user_name}', first_name='{$first_name}', last_name={$last_name}, email='{$email}',";
+        $sql .= "password='{$password}', image='{$image_name}', role='{$role}'  WHERE id = $user_id";
+        $results = $connection->query($sql);
+        if ($results) {
+            move_uploaded_file($temp_location,'./public/image/'.$image_name);
+            if($image_name){
+                unlink($old_image,"./public/image/$old_image");
+            }
+            header('Location: users.php');
+        }else{
+            echo mysqli_error($connection);
+        }
+    }else{
+        echo "<div class='alert alert-danger'>Input feild is empty</div>";
+    }
+
+}
+
+
+/**
+ * deleteUser
+ *
+ * @param  mixed $id
+ * @return void
+ */
+function deleteUser($id){
+    global $connection;
+    $sql = "DELETE FROM users WHERE id = $id";
+    $results = $connection->query($sql);
+    if ($results) {
+        header('Location: users.php');
+    }
+}
+
 
 ?>
