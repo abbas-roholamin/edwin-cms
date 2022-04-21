@@ -24,14 +24,14 @@
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#users_dropdown"><i
-                    class="fa fa-fw fa-newspaper-o"></i>
+                    class="fa fa-fw fa-users"></i>
                 Users <b class="caret"></b></a>
             <ul id="users_dropdown" class="collapse">
                 <li>
-                    <a href="#">Dropdown Item</a>
+                    <a href="./users.php">Veiw all users</a>
                 </li>
                 <li>
-                    <a href="#">Dropdown Item</a>
+                    <a href="./users.php?flag=add">Add new user</a>
                 </li>
             </ul>
         </li>
