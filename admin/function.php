@@ -418,7 +418,7 @@ function updateUser($user_id,$data)
         $image_name = $_FILES['image']['name'];
         $temp_location = $_FILES['image']['tmp_name'];
         $role = $_POST['role'];  
-        $sql = "UPDATE users SET user_name='{$user_name}', first_name='{$first_name}', last_name={$last_name}, email='{$email}',";
+        $sql = "UPDATE users SET user_name='{$user_name}', first_name='{$first_name}', last_name='{$last_name}', email='{$email}',";
         $sql .= "password='{$password}', image='{$image_name}', role='{$role}'  WHERE id = $user_id";
         $results = $connection->query($sql);
         if ($results) {
