@@ -453,4 +453,29 @@ function deleteUser($id){
 }
 
 
+function login($email,$password){
+    global $connection;
+    $email = mysqli_real_escape_string($connection,$email);
+    $password = mysqli_real_escape_string($connection,$password);
+    $sql = "SELECT *  FROM users WHERE email = '$email' AND password='$password'";
+    $results = $connection->query($sql);
+    if (!$results) {
+        die(mysqli_error($connection));
+    }
+    $rows = $results->fetch_all(1);
+    if (count($rows) > 0) {
+        $data['first_name'] = $rows[0]['first_name'];
+        $data['last_name'] = $rows[0]['last_name'];
+        $data['email'] = $rows[0]['email'];
+        $data['password'] = $rows[0]['password'];
+        $data['image'] = $rows[0]['image'];
+        $data['role'] = $rows[0]['role'];
+        $rows = $data;  
+    }else {
+        $rows = 0;
+    }
+
+    return $rows;
+}
+
 ?>
