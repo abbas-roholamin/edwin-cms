@@ -4,3 +4,13 @@ img.media-object {
   max-width: 5rem;
   height: auto;
 }
+
+.login_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72vh;
+}
+.login_wrapper .content {
+  width: 40rem;
+}
