@@ -23,9 +23,15 @@
                 <li>
                     <a href="#">About</a>
                 </li>
+                <?php if (isset($_SESSION['role'])){?>
                 <li>
                     <a href="admin">Dashboard</a>
                 </li>
+                <?php }else{?>
+                <li>
+                    <a href="login.php">Login</a>
+                </li>
+                <?php }?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
