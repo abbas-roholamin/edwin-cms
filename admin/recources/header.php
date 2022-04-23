@@ -1,5 +1,23 @@
 <?php ob_start();?>
 <?php include "../database/db.php";?>
+<?php session_start();?>
+<?php include "function.php";?>
+<?php
+    if (isset($_SESSION['role'])) {
+        if ( $_SESSION['role'] != 1) {
+            header("Location: ../login.php");
+        }
+    }else{
+        header("Location: ../index.php");
+    }
+
+    if (isset($_GET['logout'])) {
+           $result = logout();
+           if($result == 1){
+               header("Location: ../index.php");
+           }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
