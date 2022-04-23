@@ -1,6 +1,7 @@
 <!-- DB -->
 <?php include_once("database/db.php");?>
 <?php include_once("admin/function.php");?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
