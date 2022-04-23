@@ -1,5 +1,4 @@
 <?php include "recources/header.php";?>
-<?php include "function.php";?>
 <div id="wrapper">
 
     <!-- Navigation -->
