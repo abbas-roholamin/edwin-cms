@@ -453,6 +453,13 @@ function deleteUser($id){
 }
 
 
+/**
+ * login
+ *
+ * @param  mixed $email
+ * @param  mixed $password
+ * @return void
+ */
 function login($email,$password){
     global $connection;
     $email = mysqli_real_escape_string($connection,$email);
@@ -477,5 +484,13 @@ function login($email,$password){
 
     return $rows;
 }
+
+
+
+function logout(){
+    unset($_SESSION['role']);
+    return 1;
+}
+
 
 ?>
