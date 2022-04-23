@@ -1,6 +1,5 @@
 <!-- Header -->
 <?php include_once("resources/layouts/header.php");?>
-<?php session_start();?>
 <?php
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
