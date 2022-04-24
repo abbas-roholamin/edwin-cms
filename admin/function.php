@@ -494,5 +494,15 @@ function logout(){
     return 1;
 }
 
+function countTableRows($table){
+    global $connection;
+    $sql = "SELECT COUNT(id) as total_rows FROM {$table}";
+    $results = $connection->query($sql);
+     $rows = $results->fetch_all(1);
+    if (!$rows) {
+        die(mysqli_error($connection));
+    }
+    return $rows[0]['total_rows'];
+}
 
 ?>
