@@ -24,8 +24,11 @@
             </div>
             <!-- /.row -->
 
+            <?php $total_posts = countTableRows('posts');?>
+            <?php $total_comments = countTableRows('comments');?>
+            <?php $total_users = countTableRows('users');?>
+            <?php $total_categories = countTableRows('categories');?>
             <!-- /.row -->
-
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
@@ -35,7 +38,7 @@
                                     <i class="fa fa-file-text fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>12</div>
+                                    <div class='huge'><?=$total_posts?></div>
                                     <div>Posts</div>
                                 </div>
                             </div>
@@ -57,7 +60,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>23</div>
+                                    <div class='huge'><?=$total_comments?></div>
                                     <div>Comments</div>
                                 </div>
                             </div>
@@ -79,7 +82,7 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>23</div>
+                                    <div class='huge'><?=$total_users?></div>
                                     <div> Users</div>
                                 </div>
                             </div>
@@ -101,7 +104,7 @@
                                     <i class="fa fa-list fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>13</div>
+                                    <div class='huge'><?=$total_categories?></div>
                                     <div>Categories</div>
                                 </div>
                             </div>
