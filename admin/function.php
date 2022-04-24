@@ -471,6 +471,8 @@ function login($email,$password){
     }
     $rows = $results->fetch_all(1);
     if (count($rows) > 0) {
+        $data['user_id'] = $rows[0]['id'];
+        $data['user_name'] = $rows[0]['user_name'];
         $data['first_name'] = $rows[0]['first_name'];
         $data['last_name'] = $rows[0]['last_name'];
         $data['email'] = $rows[0]['email'];
