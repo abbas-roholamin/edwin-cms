@@ -7,8 +7,11 @@
         $result = login($email,$password);
         if ($result !== 0) {
             if ($result['email'] === $email && $result['password'] === $password) {
+                $_SESSION['user_id'] = $result['user_id'];
+                $_SESSION['user_name'] = $result['user_name'];
                 $_SESSION['first_name'] = $result['first_name'];
                 $_SESSION['last_name'] = $result['last_name'];
+                $_SESSION['password'] = $result['password'];
                 $_SESSION['image'] = $result['image'];
                 $_SESSION['role'] = $result['role'];
                 header("Location: admin/");
