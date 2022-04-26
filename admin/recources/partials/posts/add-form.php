@@ -51,7 +51,10 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" name="status" class="form-control" placeholder="Post status" id="status">
+                            <select class="form-control" id="status" name="status">
+                                <option value="0">Pendding</option>
+                                <option value="1">Published</option>
+                            </select>
                         </div>
                     </div>
                 </div>
