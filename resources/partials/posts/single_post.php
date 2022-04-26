@@ -47,7 +47,11 @@
             <p class="lead">
                 <?= $data['content'] ?>
             </p>
-
+            <?php  if(isset($_SESSION['role'])):?>
+            <a class="btn btn-primary" href="admin/posts.php?flag=edit&id=<?=$_GET["post_id"]?>">
+                <i class="fa fa-pencil info"></i>Edit
+            </a>
+            <?php endif?>
             <hr>
 
             <!-- Blog Comments -->
