@@ -54,7 +54,7 @@
                             <img src="<?=$path?>" class="post_image" style="max-width: 22rem; height: auto;" />
                         </td>
                         <!-- <td><?=$comment_num?></td> -->
-                        <td><?=$status?></td>
+                        <td><?=($status == 0)? "Pendding":"Published"?></td>
                         <td>
                             <div class="action_dropdown_area">
                                 <div class="dropdown">
