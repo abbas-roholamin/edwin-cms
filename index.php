@@ -16,7 +16,7 @@
 
             <!-- Blog Posts -->
             <?php
-                    $sql = "SELECT * FROM posts";
+                    $sql = "SELECT * FROM posts WHERE status = '1'";
                     $results = $connection->query($sql);
                     $rows = $results->fetch_all(1);
                     foreach ($rows as $row):
