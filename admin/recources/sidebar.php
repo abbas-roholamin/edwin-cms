@@ -16,10 +16,10 @@
                 </li>
             </ul>
         </li>
-        <li class="active">
+        <li>
             <a href="categories.php"><i class="fa fa-fw fa-file"></i> Categories</a>
         </li>
-        <li class="active">
+        <li>
             <a href="comments.php"><i class="fa fa-fw fa-comment-o"></i> Comments</a>
         </li>
         <li>
