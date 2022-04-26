@@ -9,7 +9,7 @@
 function getAllCategories()
 {
     global $connection;
-    $sql = "SELECT * FROM categories";
+    $sql = "SELECT * FROM categories  ORDER BY id DESC";
     $results = $connection->query($sql);
     $rows = $results->fetch_all(1);
     return $rows;
@@ -105,7 +105,7 @@ function updateCategory($category_id,$category_name)
 function getAllPosts()
 {
     global $connection;
-    $sql = "SELECT p.*, c.title as category FROM posts as p INNER JOIN categories as c ON p.category_id=c.id";
+    $sql = "SELECT p.*, c.title as category FROM posts as p INNER JOIN categories as c ON p.category_id=c.id ORDER BY p.id DESC";
     $results = $connection->query($sql);
     $rows = $results->fetch_all(1);
     return $rows;
@@ -231,7 +231,7 @@ function deletePost($id){
 function getAllComments()
 {
     global $connection;
-    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p ON c.post_id=p.id";
+    $sql = "SELECT c.*, p.title as post_name FROM comments as c INNER JOIN posts as p ON c.post_id=p.id ORDER BY c.id DESC";
     $results = $connection->query($sql);
     $rows = $results->fetch_all(1);
     return $rows;
@@ -338,7 +338,7 @@ function deleteComment($id){
 function getAllUsers()
 {
     global $connection;
-    $sql = "SELECT *  FROM users";
+    $sql = "SELECT *  FROM users ORDER BY id DESC";
     $results = $connection->query($sql);
     $rows = $results->fetch_all(1);
     return $rows;
