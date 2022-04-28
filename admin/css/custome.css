@@ -4,3 +4,7 @@ img.media-object {
   max-width: 5rem;
   height: auto;
 }
+
+.ck-editor__main .ck-content p {
+  min-height: 10rem;
+}

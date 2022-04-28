@@ -14,3 +14,7 @@ img.media-object {
 .login_wrapper .content {
   width: 40rem;
 }
+
+.ck-editor__main .ck-content p {
+  min-height: 10rem;
+}
