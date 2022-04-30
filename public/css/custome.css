@@ -5,13 +5,15 @@ img.media-object {
   height: auto;
 }
 
-.login_wrapper {
+.login_wrapper,
+.registration_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 72vh;
 }
-.login_wrapper .content {
+.login_wrapper .content,
+.registration_wrapper .content {
   width: 40rem;
 }
 
