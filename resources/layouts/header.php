@@ -2,6 +2,13 @@
 <?php include_once("database/db.php");?>
 <?php include_once("admin/function.php");?>
 <?php session_start();?>
+<?php
+    if (isset($_GET['logout'])) {
+           $result = logout();
+           if($result == 1){
+               header("Location: index.php");
+           }
+    }?>
 <!DOCTYPE html>
 <html lang="en">
 
