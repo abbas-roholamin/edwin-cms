@@ -23,11 +23,16 @@
                 <li>
                     <a href="#">About</a>
                 </li>
-                <?php if (isset($_SESSION['role'])){?>
+                <?php if (isset($_SESSION['role'])){
+                    if ($_SESSION['role'] == 1) {?>
                 <li>
                     <a href="admin">Dashboard</a>
                 </li>
-                <?php }else{?>
+                <?php }else{ ?>
+                <li>
+                    <a href="index.php?logout=true"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+                <?php }}else{?>
                 <li>
                     <a href="login.php">Login</a>
                 </li>
