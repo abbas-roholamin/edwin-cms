@@ -5,19 +5,16 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $result = login($email,$password);
-        if ($result !== 0) {
-            if ($result['email'] === $email && $result['password'] === $password) {
-                $_SESSION['user_id'] = $result['user_id'];
-                $_SESSION['user_name'] = $result['user_name'];
-                $_SESSION['first_name'] = $result['first_name'];
-                $_SESSION['last_name'] = $result['last_name'];
-                $_SESSION['password'] = $result['password'];
-                $_SESSION['image'] = $result['image'];
-                $_SESSION['role'] = $result['role'];
-                header("Location: admin/");
-            }
+        if ($result != 0) {
+            $_SESSION['user_id'] = $result['user_id'];
+            $_SESSION['user_name'] = $result['user_name'];
+            $_SESSION['first_name'] = $result['first_name'];
+            $_SESSION['last_name'] = $result['last_name'];
+            $_SESSION['password'] = $result['password'];
+            $_SESSION['image'] = $result['image'];
+            $_SESSION['role'] = $result['role'];
+            header("Location: admin/");
         }
-
     }
 ?>
 
@@ -26,6 +23,11 @@
     <div class="login_wrapper">
         <div class="content">
             <h1 class="text-center">Login</h1>
+            <?php if(isset($result)){
+                if($result == 0){
+                    echo "<div class='bg-danger text-center'>Email or password is incorrect!</div>";
+                }
+            }?>
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
