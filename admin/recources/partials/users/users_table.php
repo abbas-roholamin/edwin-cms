@@ -64,7 +64,8 @@
                                             <i class="fa fa-pencil info"></i>
                                             Edit
                                         </a>
-                                        <a href="users.php?user_id=<?=$id?>" class="dropdown-item">
+                                        <a href="users.php?user_id=<?=$id?>" class="dropdown-item"
+                                            onclick="javascript: return confirm('Are your sure you want delete?')">
                                             <i class="fa fa-trash  danger"></i>
                                             Delete
                                         </a>

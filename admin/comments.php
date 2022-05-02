@@ -88,7 +88,8 @@
                                                     </a>
                                                     <?php }?>
 
-                                                    <a href="comments.php?comment_id=<?=$id?>" class="dropdown-item">
+                                                    <a href="comments.php?comment_id=<?=$id?>" class="dropdown-item"
+                                                        onclick="javascript: return confirm('Are your sure you want delete?')">
                                                         <i class="fa fa-trash  danger"></i>
                                                         Delete
                                                     </a>
