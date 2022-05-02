@@ -1,5 +1,5 @@
 <?php
-
+include "helpers.php";
 
 /**
  * getAllCategories
@@ -358,7 +358,7 @@ function saveUser($data)
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = inCryptPassword($_POST['password']);
     $image_name = $_FILES['image']['name'];
     $temp_location = $_FILES['image']['tmp_name'];
     $role = $_POST['role'];  
@@ -413,7 +413,7 @@ function updateUser($user_id,$data)
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
-        $password = ($_POST['password'])? $_POST['password'] : $_POST['old_password'];
+        $password = ($_POST['password'])? inCryptPassword($_POST['password']) : inCryptPassword($_POST['old_password']);
         $old_image = $_POST['old_image'];
         $image_name = $_FILES['image']['name'];
         $temp_location = $_FILES['image']['tmp_name'];
@@ -464,11 +464,13 @@ function login($email,$password){
     global $connection;
     $email = mysqli_real_escape_string($connection,$email);
     $password = mysqli_real_escape_string($connection,$password);
-    $sql = "SELECT *  FROM users WHERE email = '$email' AND password='$password'";
+    $decrypte = inCryptPassword($password);
+    $sql = "SELECT *  FROM users WHERE email = '$email' AND password='$decrypte'";
     $results = $connection->query($sql);
     if (!$results) {
         die(mysqli_error($connection));
     }
+    
     $rows = $results->fetch_all(1);
     if (count($rows) > 0) {
         $data['user_id'] = $rows[0]['id'];
@@ -489,11 +491,22 @@ function login($email,$password){
 
 
 
+/**
+ * logout
+ *
+ * @return int
+ */
 function logout(){
     unset($_SESSION['role']);
     return 1;
 }
 
+/**
+ * countTableRows
+ *
+ * @param  mixed $table
+ * @return Arr
+ */
 function countTableRows($table){
     global $connection;
     $sql = "SELECT COUNT(id) as total_rows FROM {$table}";
@@ -505,4 +518,24 @@ function countTableRows($table){
     return $rows[0]['total_rows'];
 }
 
+function registration($data){
+    global $connection;
+    if (!empty($data['user_name']) && !empty($data['first_name']) && !empty($data['last_name']) && !empty($data['email'] && !empty($data['password']) )) {
+        $user_name = mysqli_real_escape_string($connection,$data['user_name']);
+        $first_name = mysqli_real_escape_string($connection,$data['first_name']);
+        $last_name = mysqli_real_escape_string($connection,$data['last_name']);
+        $email = mysqli_real_escape_string($connection,$data['email']);
+        $password = mysqli_real_escape_string($connection,$data['password']);
+        $cryptdPasssword = inCryptPassword($password);
+        $sql = "INSERT INTO users (user_name, first_name, last_name, email, password)
+        VALUES ('$user_name', '$first_name', '$last_name', '$email','$cryptdPasssword')";
+        $results = $connection->query($sql);
+        if ($results) {
+            header('Location: index.php');
+        }
+    }else{
+        return "All feilds are required!";
+    }
+
+}
 ?>
