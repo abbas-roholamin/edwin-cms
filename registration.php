@@ -8,6 +8,7 @@
         $data['email'] = $_POST['email'];
         $data['password'] = $_POST['password'];
         $result = registration($data);
+        $_SESSION['role'] = 2;
     }
 ?>
 <!-- Page Content -->
