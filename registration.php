@@ -15,6 +15,7 @@
     <div class="registration_wrapper">
         <div class="content">
             <h1 class="text-center">Registertion</h1>
+            <?=isset($result)? "<div class='bg-warning text-center'>$result</div>" : ""?>
             <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                 <div class="form-group">
                     <label for="username">User Name</label>
