@@ -10,13 +10,22 @@
 <div class="container">
 
     <?php
-        $flag = (isset($_GET['post_id']))? "single_post" : "category_posts";
+        if(isset($_GET['post_id'])){
+            $flag ="single_post";
+        }elseif(isset($_GET['category_posts'])){
+            $flag ="category_posts";
+        }elseif(isset($_GET['author_posts'])){
+            $flag ="author_posts";
+        }
         switch ($flag) {
             case 'single_post':
                 include "resources/partials/posts/single_post.php";
                 break;
             case 'category_posts':
                 include "resources/partials/posts/category_posts.php";
+                break;
+            case 'author_posts':
+                include "resources/partials/posts/author_posts.php";
                 break;
             default:
                 header('Location: index.php');
