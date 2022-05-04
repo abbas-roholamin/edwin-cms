@@ -67,6 +67,10 @@
                                             <i class="fa fa-pencil info"></i>
                                             Edit
                                         </a>
+                                        <a href="/edwin-cms/post.php?post_id=<?=$id?>" class="dropdown-item">
+                                            <i class="fa fa-pencil info"></i>
+                                            View
+                                        </a>
                                         <a href="posts.php?post_id=<?=$id?>" class="dropdown-item"
                                             onclick="javascript: return confirm('Are your sure you want delete?')">
                                             <i class="fa fa-trash  danger"></i>
