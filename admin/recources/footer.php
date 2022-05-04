@@ -7,6 +7,12 @@
 <!-- ckeditor plugin -->
 <script src="js/plugins/ckeditor/ckeditor.js"></script>
 <script>
+var loader = `<div id="load-screen"><div id="loading"></div></div>`;
+$('body').prepend(loader);
+
+$('#load-screen').delay(500).fadeOut(400, function() {
+    $(this).remove();
+});
 $(document).ready(function() {
 
     ClassicEditor
