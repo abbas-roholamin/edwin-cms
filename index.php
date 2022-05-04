@@ -16,7 +16,7 @@
 
             <!-- Blog Posts -->
             <?php
-                    $sql = "SELECT * FROM posts WHERE status = '1'";
+                    $sql = "SELECT * FROM posts WHERE status = '1' ORDER BY id DESC";
                     $results = $connection->query($sql);
                     $rows = $results->fetch_all(1);
                     foreach ($rows as $row):
@@ -32,7 +32,7 @@
                 <a href="post.php?post_id=<?=$id?>"><?= $post_title; ?></a>
             </h2>
             <p class="lead">
-                by <a href="index.php"><?= $post_author; ?></a>
+                by <a href="post.php?author_posts=<?=$post_author?>"><?= $post_author; ?></a>
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on <?= $post_date?></p>
 
