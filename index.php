@@ -16,7 +16,13 @@
 
             <!-- Blog Posts -->
             <?php
-                    $sql = "SELECT * FROM posts WHERE status = '1' ORDER BY id DESC";
+
+                    $perPage = 5;
+                    $page = ($_GET['page'])? $_GET['page'] : 1;
+                    $numberOfPosts = countTableRows('posts');
+                    $pagination_number = ceil($numberOfPosts / $perPage);
+                    $offset = ($page * $perPage) - $perPage;
+                    $sql = "SELECT * FROM posts WHERE status = '1' ORDER BY id DESC LIMIT $offset, $perPage";
                     $results = $connection->query($sql);
                     $rows = $results->fetch_all(1);
                     foreach ($rows as $row):
@@ -52,12 +58,11 @@
 
             <!-- Pager -->
             <ul class="pager">
+                <?php for ($i=1; $i <= $pagination_number; $i++) { ?>
                 <li class="previous">
-                    <a href="#">&larr; Older</a>
+                    <a href="index.php?page=<?=$i?>"><?=$i?></a>
                 </li>
-                <li class="next">
-                    <a href="#">Newer &rarr;</a>
-                </li>
+                <?php  }?>
             </ul>
 
         </div>
