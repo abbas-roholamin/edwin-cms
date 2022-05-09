@@ -505,7 +505,7 @@ function logout(){
  * countTableRows
  *
  * @param  mixed $table
- * @return Arr
+ * @return int
  */
 function countTableRows($table){
     global $connection;
