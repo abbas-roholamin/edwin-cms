@@ -20,3 +20,8 @@ img.media-object {
 .ck-editor__main .ck-content p {
   min-height: 10rem;
 }
+
+.pager {
+  display: flex;
+  justify-content: center;
+}
